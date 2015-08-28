@@ -39,7 +39,7 @@ def main(argv):
 	for root, dirs, files in os.walk(inDir):
     		for file in files:
         		if file.endswith(pattern):
-				inputFile = os.path.join(root, file)
-				Process(inDir, root, file, outDir)
+					Process(inDir, root, file, outDir)
+					
 if __name__ == "__main__":
    main(sys.argv[1:])
