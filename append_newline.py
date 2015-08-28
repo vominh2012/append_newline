@@ -11,16 +11,6 @@ def PrintUsage():
 	print ' append_newline.py .cpp /home/myproject /home/outdir'
 	sys.exit(2)
 
-def CopyDirectory(src, dest):
-    try:
-        shutil.copytree(src, dest)
-    # Directories are the same
-    except shutil.Error as e:
-        print('Directory not copied. Error: %s' % e)
-    # Any error saying that the directory doesn't exist
-    except OSError as e:
-        print('Directory not copied. Error: %s' % e)
-		
 def Process(src, curDir, curFile, des):
 	inFile = os.path.join(curDir, curFile)
 	
