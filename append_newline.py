@@ -15,8 +15,12 @@ def Process(src, curDir, curFile, des):
 	inFile = os.path.join(curDir, curFile)
 	
 	with open(inFile, 'rb+') as filehandle:
-    		filehandle.seek(-1, os.SEEK_END)
-		c = filehandle.read(1)
+		if os.stat(inFile).st_size == 0:
+			c = ''
+		else:
+			filehandle.seek(-1, os.SEEK_END)
+			c = filehandle.read(1)
+			
 		if c != '\n':
 			outDir = curDir.replace(src, des, 1)
 			
